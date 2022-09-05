@@ -20,6 +20,8 @@ initializePassport(
 const users = [];
 
 app.set("view-engine", "ejs");
+app.set("view-engine", "text/css");
+app.use(express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: false }));
 app.use(flash());
 app.use(
@@ -32,7 +34,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(methodOverride("_method"));
-
+app.use(express.static(__dirname + "public"));
 app.get("/", checkAuthenticated, (req, res) => {
   res.render("index.ejs", { name: req.user.name });
 });
@@ -94,4 +96,6 @@ function checkNotAuthenticated(req, res, next) {
   next();
 }
 
-app.listen(3000);
+app.listen(3000, () => {console.log("Listening to server http://localhost:3000")});
+
+

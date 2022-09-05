@@ -1,27 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NodeJS Login Test</title>
-</head>
-<body>
-  <h1>Login</h1>
+<%- include('header') -%>
+  <h1 class="text-2xl text-center mt-6">Login</h1>
 <% if (messages.error) { %>
   <%= messages.error %>
 <% } %>
-<form action="/login" method="POST">
-  <div>
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" required>
+<form action="/login" method="POST" class="flex flex-col w-11/12 justify-center mx-auto mt-12 bg-white p-6 rounded-xl shadow-lg md:w-1/3 lg:w-1/4 mb-10">
+  <div class="flex justify-between items-center mb-6">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" class="border-2 border-blue-300 rounded px-2 py-2 w-3/4" required>
   </div>
-  <div>
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password" required>
+  <div class="flex justify-between items-center mb-10">
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" class="border-2 border-blue-300 rounded px-2 py-2 w-3/4" required>
   </div>
-  <button type="submit">Login</button>
+  <button type="submit" class="bg-blue-500 w-1/3 self-end py-2 rounded-xl text-white hover:bg-blue-600 font-semibold">Login</button>
 </form>
-<a href="/register">Register</a>
-</body>
-</html>
+<a href="/register" class="text-center block">Register</a>
+<%- include('footer') -%>
